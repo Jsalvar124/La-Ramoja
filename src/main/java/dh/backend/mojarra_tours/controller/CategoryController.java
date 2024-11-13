@@ -54,4 +54,11 @@ public class CategoryController {
         CategoryDto categoryDto = iCategoryService.getCategoryById(id);
         return ResponseEntity.ok(categoryDto);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTourById(@PathVariable("id") Long id){
+        LOGGER.info("DELETE REQUEST: CATEGORY WITH ID "+ id);
+        iCategoryService.deleteCategory(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
