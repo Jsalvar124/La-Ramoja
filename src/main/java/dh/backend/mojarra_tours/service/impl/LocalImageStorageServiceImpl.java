@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-@Profile("local")
 public class LocalImageStorageServiceImpl implements ImageStorageService {
 
     private static final String BASE_DIRECTORY = "src/main/resources/static/images";
