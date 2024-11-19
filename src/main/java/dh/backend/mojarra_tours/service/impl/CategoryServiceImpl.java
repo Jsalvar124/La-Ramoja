@@ -2,7 +2,6 @@ package dh.backend.mojarra_tours.service.impl;
 
 import dh.backend.mojarra_tours.dto.CategoryDto;
 import dh.backend.mojarra_tours.entity.Category;
-import dh.backend.mojarra_tours.entity.Tour;
 import dh.backend.mojarra_tours.exception.ResourceNotFoundException;
 import dh.backend.mojarra_tours.mapper.CategoryMapper;
 import dh.backend.mojarra_tours.repository.CategoryRepository;
@@ -59,15 +58,5 @@ public class CategoryServiceImpl implements ICategoryService {
             categoryDtoResponse.add(CategoryMapper.mapToCategoryDto(category));
         }
         return categoryDtoResponse;
-    }
-
-    @Override
-    public void deleteCategory(Long id) {
-        Category category = categoryRepository.findById(id)
-                .orElseThrow(()->
-                        new ResourceNotFoundException("No category found with the given id: " + id));
-        // Si no se arroja ningún error, entonces quiere decir que la categoría existe, se procede a eliminarlo.
-        categoryRepository.delete(category);
-        LOGGER.info("Category With id " + id + " deleted");
     }
 }

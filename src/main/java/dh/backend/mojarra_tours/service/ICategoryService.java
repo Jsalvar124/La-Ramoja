@@ -10,7 +10,4 @@ public interface ICategoryService {
     CategoryDto getCategoryById(Long id);
     List<CategoryDto> getCategories();
 
-    void deleteCategory(Long id);
-
-
 }
